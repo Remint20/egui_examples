@@ -29,7 +29,7 @@ struct Range {
     max: f32,
 }
 
-struct SimpleApp {
+struct LineUpApp {
     lines: Vec<Line>,
     line_length_range: Range,
     speed_range: Range,
@@ -37,7 +37,7 @@ struct SimpleApp {
     probability_generation: f64,
 }
 
-impl Default for SimpleApp {
+impl Default for LineUpApp {
     fn default() -> Self {
         Self {
             lines: Vec::new(),
@@ -58,9 +58,9 @@ impl Default for SimpleApp {
     }
 }
 
-impl epi::App for SimpleApp {
+impl epi::App for LineUpApp {
     fn name(&self) -> &str {
-        "SimpleApp"
+        "LineUp animation"
     }
 
     fn update(&mut self, ctx: &egui::Context, _frame: &epi::Frame) {
@@ -148,7 +148,7 @@ impl Line {
 }
 
 fn main() {
-    let app = SimpleApp::default();
+    let app = LineUpApp::default();
     let options = eframe::NativeOptions {
         initial_window_pos: Some(egui::pos2(920., 0.)),
         initial_window_size: Some(egui::vec2(500., 500.)),

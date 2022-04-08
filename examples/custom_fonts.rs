@@ -3,18 +3,18 @@
 use eframe::{egui, epi};
 
 fn main() {
-    let app = App::default();
+    let app = CustomFont::default();
     let options = eframe::NativeOptions::default();
 
     eframe::run_native(Box::new(app), options);
 }
 
 #[derive(Default)]
-struct App {}
+struct CustomFont {}
 
-impl epi::App for App {
+impl epi::App for CustomFont {
     fn name(&self) -> &str {
-        "Hello World"
+        "custom_font"
     }
 
     fn setup(
@@ -44,14 +44,11 @@ impl epi::App for App {
             .push("my_font".to_owned());
 
         ctx.set_fonts(fonts);
-
-        // 文字の大きさを変更
-        // ctx.set_pixels_per_point(1.5);
     }
 
     fn update(&mut self, ctx: &egui::Context, _frame: &epi::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.label("NotoSansJP");
+            ui.heading("NotoSansJP");
             ui.label("Hello World ハローワールド");
         });
     }

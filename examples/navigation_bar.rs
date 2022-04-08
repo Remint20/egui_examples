@@ -4,11 +4,11 @@ use eframe::egui::{pos2, vec2, Color32, Id, Layout, Rect, Response, Sense, Ui};
 use eframe::{egui, epi};
 use egui_extras::RetainedImage;
 
-struct SimpleApp {
+struct NavigationBarApp {
     navigation_bar: Box<NavigationBar>,
 }
 
-impl Default for SimpleApp {
+impl Default for NavigationBarApp {
     fn default() -> Self {
         Self {
             navigation_bar: Box::new(NavigationBar::new(vec![
@@ -42,9 +42,9 @@ impl Default for SimpleApp {
     }
 }
 
-impl epi::App for SimpleApp {
+impl epi::App for NavigationBarApp {
     fn name(&self) -> &str {
-        "SimpleApp"
+        "NavigationBar"
     }
 
     fn update(&mut self, ctx: &egui::Context, _frame: &epi::Frame) {
@@ -226,7 +226,7 @@ impl NavigationBar {
 }
 
 fn main() {
-    let app = SimpleApp::default();
+    let app = NavigationBarApp::default();
     let options = eframe::NativeOptions {
         initial_window_pos: Some(egui::pos2(920., 0.)),
         initial_window_size: Some(egui::vec2(600., 800.)),

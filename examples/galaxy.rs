@@ -2,17 +2,12 @@
 
 use eframe::{egui, epi};
 
-struct SimpleApp {}
+#[derive(Default)]
+struct GalaxyApp {}
 
-impl Default for SimpleApp {
-    fn default() -> Self {
-        Self {}
-    }
-}
-
-impl epi::App for SimpleApp {
+impl epi::App for GalaxyApp {
     fn name(&self) -> &str {
-        "SimpleApp"
+        "galaxy aniamtion"
     }
 
     fn update(&mut self, ctx: &egui::Context, _frame: &epi::Frame) {
@@ -165,7 +160,7 @@ impl epi::App for SimpleApp {
 }
 
 fn main() {
-    let app = SimpleApp::default();
+    let app = GalaxyApp::default();
     let options = eframe::NativeOptions {
         initial_window_pos: Some(egui::pos2(920., 0.)),
         initial_window_size: Some(egui::vec2(1000., 1000.)),
